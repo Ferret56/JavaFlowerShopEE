@@ -18,6 +18,5 @@ public class UserServiceImpl implements UserService {
     public void save(User user) {
      dao = new UserDaoImpl();
      dao.addUser(user);
-
     }
 }

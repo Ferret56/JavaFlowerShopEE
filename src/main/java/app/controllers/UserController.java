@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class TestController {
+public class UserController {
     @RequestMapping(value = "/signIn", method = RequestMethod.GET)
     public String test(){
         return "SignInPage";
