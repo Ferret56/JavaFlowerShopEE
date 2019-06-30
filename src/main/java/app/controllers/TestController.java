@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class TestController {
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/signIn", method = RequestMethod.GET)
     public String test(){
         return "SignInPage";
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String register(){
+        return "RegisterPage";
     }
 }

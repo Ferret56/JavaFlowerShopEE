@@ -1,4 +1,7 @@
-<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: alexsey.sultanaev
@@ -26,10 +29,9 @@
         </div>
         <input class ="Submit" type="submit" name="submit" value="Sign in"/>
         <br/>
-        <c:url value="/web/register" var="registerLink"/>
+
+       <c:url value="/web/register" var="registerLink"/>
         <a href="${registerLink}">Register</a>
-
-
     </form>
 </div>
 </body>
