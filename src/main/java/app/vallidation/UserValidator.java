@@ -25,4 +25,12 @@ public class UserValidator {
        return password.equals(confirmPassword);
     }
 
+    public User findByUsername(final String username, List<User> userList){
+       for(User user : userList){
+           if(username.equals(user.getUsername()))
+               return user;
+       }
+       return null;
+    }
+
 }

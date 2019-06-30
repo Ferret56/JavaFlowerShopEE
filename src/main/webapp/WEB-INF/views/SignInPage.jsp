@@ -20,7 +20,7 @@
 <body>
 <div class = "container">
     <h2 class="welcomeText">Account</h2>
-    <form>
+    <form method="post">
         <div class = "mainInput">
             <input type="text" name="username" placeholder="username"/>
         </div>
@@ -29,9 +29,9 @@
         </div>
         <input class ="Submit" type="submit" name="submit" value="Sign in"/>
         <br/>
-
        <c:url value="/web/register" var="registerLink"/>
         <a href="${registerLink}">Register</a>
+        <h5 class="infMessage">${informationMessage}</h5>
     </form>
 </div>
 </body>
