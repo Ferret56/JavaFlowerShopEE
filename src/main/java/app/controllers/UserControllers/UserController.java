@@ -1,4 +1,4 @@
-package app.controllers;
+package app.controllers.UserControllers;
 
 
 import app.Service.UserService;
@@ -12,13 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class UserController {
 
-    private UserService service;
-
-    @Autowired
-    public UserController(UserService service) {
-        this.service = service;
-    }
-
     @RequestMapping(value = "/signIn", method = RequestMethod.GET)
     public String test(){
         return "SignInPage";
@@ -26,9 +19,6 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String register(){
-        User user = new User("test","test");
-        service.save(user);
-
         return "RegisterPage";
     }
 }

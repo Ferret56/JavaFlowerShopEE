@@ -11,7 +11,7 @@
 <body>
 <div class = "container">
     <h2 class="welcomeText">Create new account</h2>
-    <form>
+    <form method="post">
         <div class = "mainInput">
             <input type="text" name="username" placeholder="username"/>
         </div>
@@ -19,11 +19,11 @@
             <input type = "password" name="password" placeholder="password"/>
         </div>
         <div class = "mainInput">
-            <input type = "password" name="password" placeholder="confirm password"/>
+            <input type = "password" name="confirm_password" placeholder="confirm password"/>
         </div>
         <br>
         <input class ="Submit" type="submit" name="submit" value="Register"/>
-        <h3>${informationMessage}</h3>
+        <h4 class="infMessage">${informationMessage}</h4>
     </form>
 
 </div>
