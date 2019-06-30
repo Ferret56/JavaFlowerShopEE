@@ -23,7 +23,7 @@
         </div>
         <br>
         <input class ="Submit" type="submit" name="submit" value="Register"/>
-        <h4 class="infMessage">${informationMessage}</h4>
+        <h5 class="infMessage">${informationMessage}</h5>
     </form>
 
 </div>

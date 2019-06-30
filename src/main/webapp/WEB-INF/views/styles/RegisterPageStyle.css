@@ -42,5 +42,6 @@ input[type = "text"], input[type = "password"]{
     color: #C38FFF ;
 }
 .infMessage{
-    color: red;
+    font-family: Georgia, serif;
+    color: #C81E71;
 }
