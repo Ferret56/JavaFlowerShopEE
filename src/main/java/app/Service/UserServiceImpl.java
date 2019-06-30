@@ -13,10 +13,14 @@ public class UserServiceImpl implements UserService {
 
     private UserDao dao;
 
+    @Autowired
+    public UserServiceImpl(UserDao dao) {
+        this.dao = dao;
+    }
 
     @Override
     public void save(User user) {
-     dao = new UserDaoImpl();
+    // dao = new UserDaoImpl();
      dao.addUser(user);
     }
 }
