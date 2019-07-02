@@ -17,8 +17,7 @@
 </head>
 <body>
 
-<h1>You are logged as admin</h1>
-<h1>You are an admin yep!</h1>
+
 <form method = "post">
 <input type="submit" value="See All"/>
     <table>

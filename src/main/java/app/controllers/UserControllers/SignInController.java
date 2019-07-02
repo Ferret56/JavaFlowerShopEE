@@ -47,16 +47,20 @@ public class SignInController {
                                 @RequestParam("password")String password,
                                 RedirectAttributes redirectAttributes, HttpSession session){
 
-        User user = validator.findByUsername(username,service.getAll());
-        if(user == null || !(user.getPassword().equals(password))){
+        User currentUser = validator.findByUsername(username,service.getAll());
+
+        if(currentUser == null || !(currentUser.getPassword().equals(password))){
             redirectAttributes.addFlashAttribute("informationMessage",
                                                  "Wrong username or password!!");
             return "redirect:/web/signIn";
         }
 
-        //session.setAttribute("user", new User("test1","test1"));
+        session.setAttribute("currentUser",currentUser );
         redirectAttributes.addFlashAttribute("user", new User(username,null, Roles.USER));
-        return "UserPage";
+        if(currentUser.getRole().equals(Roles.ADMIN))
+                       return "redirect:/web/admin";
+
+        return "redirect:/web/userPage";
     }
 
 }
