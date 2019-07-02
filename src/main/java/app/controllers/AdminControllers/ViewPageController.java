@@ -1,15 +1,18 @@
 package app.controllers.AdminControllers;
 
 
+import app.models.User.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ViewPageController {
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String sendAdminPage(){
-        return "AdminPage";
+              return "AdminPage";
+
     }
 }

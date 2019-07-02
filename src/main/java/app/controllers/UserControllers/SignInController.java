@@ -6,12 +6,12 @@ import app.models.User.User;
 import app.vallidation.UserValidator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class SignInController {
@@ -43,8 +43,8 @@ public class SignInController {
 
     @RequestMapping(value = "/signIn", method = RequestMethod.POST)
     public String confirmSignIn(@RequestParam("username")String username,
-                                      @RequestParam("password")String password,
-                                      RedirectAttributes redirectAttributes){
+                                @RequestParam("password")String password,
+                                RedirectAttributes redirectAttributes, HttpSession session){
 
         User user = validator.findByUsername(username,service.getAll());
         if(user == null || !(user.getPassword().equals(password))){
@@ -53,8 +53,9 @@ public class SignInController {
             return "redirect:/web/signIn";
         }
 
+        session.setAttribute("user", new User("test1","test1"));
         redirectAttributes.addFlashAttribute("user", new User(username,null));
-        return "redirect:/web/admin";
+        return "UserPage";
     }
 
 }
