@@ -27,6 +27,7 @@
            <td align="center"><c:out value="${user.username}"/></td>
        </tr>
    </c:forEach>
+        <a href="logout">LogOut</a>
     </table>
 </form>
 
