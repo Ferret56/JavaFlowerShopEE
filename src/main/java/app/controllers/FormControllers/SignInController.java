@@ -1,4 +1,4 @@
-package app.controllers.UserControllers;
+package app.controllers.FormControllers;
 
 
 import app.Service.UserService;
@@ -56,10 +56,11 @@ public class SignInController {
         }
 
         session.setAttribute("currentUser",currentUser );
-        redirectAttributes.addFlashAttribute("user", new User(username,null, Roles.USER));
+
         if(currentUser.getRole().equals(Roles.ADMIN))
                        return "redirect:/web/admin";
 
+        redirectAttributes.addFlashAttribute("user", new User(username,null, Roles.USER));
         return "redirect:/web/userPage";
     }
 

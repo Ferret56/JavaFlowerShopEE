@@ -15,6 +15,7 @@
     <c:set var="userName" value="${user}"/>
     <title>${user.username}</title>
 <h1>You are logged as ${user.username}</h1>
+   <a href="logout">LogOut</a>
 </head>
 <body>
 
