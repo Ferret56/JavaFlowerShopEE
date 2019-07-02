@@ -2,6 +2,7 @@ package app.controllers.UserControllers;
 
 
 import app.Service.UserService;
+import app.models.User.Roles;
 import app.models.User.User;
 import app.vallidation.UserValidator;
 import org.springframework.stereotype.Controller;
@@ -53,8 +54,8 @@ public class SignInController {
             return "redirect:/web/signIn";
         }
 
-        session.setAttribute("user", new User("test1","test1"));
-        redirectAttributes.addFlashAttribute("user", new User(username,null));
+        //session.setAttribute("user", new User("test1","test1"));
+        redirectAttributes.addFlashAttribute("user", new User(username,null, Roles.USER));
         return "UserPage";
     }
 

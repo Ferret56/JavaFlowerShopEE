@@ -2,6 +2,7 @@ package app.controllers.UserControllers;
 
 
 import app.Service.UserService;
+import app.models.User.Roles;
 import app.models.User.User;
 import app.vallidation.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,7 @@ public class RegistrationController {
                     "Password and ConfirmPassword do not match!");
 
 
-        service.save(new User(username,password));
+        service.save(new User(username,password, Roles.USER));
         return new ModelAndView("RegisterPage", "informationMessage",
                                            "User has been successfully added");
     }
