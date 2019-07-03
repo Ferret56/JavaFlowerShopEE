@@ -12,12 +12,32 @@
 
 <html>
 <head>
-    <c:set var="userName" value="${user}"/>
-    <title>${user.username}</title>
-<h1>You are logged as ${user.username}</h1>
-   <a href="logout">LogOut</a>
+
+    <title>${sessionScope.currentUser.username}</title>
+
 </head>
 <body>
+
+<h1>You are logged as ${sessionScope.currentUser.username}</h1>
+<a href="logout" >LogOut</a>
+
+<h3>Product table:</h3>
+<table border="1">
+    <tbody>
+    <tr>
+        <td>ID</td>
+        <td>NAME</td>
+        <td>PRICE</td>
+    </tr>
+    <c:forEach var="flower" items="${flowerList}">
+        <tr>
+            <td><c:out value="${flower.id}"/></td>
+            <td><c:out value="${flower.name}"/></td>
+            <td><c:out value="${flower.price}"/></td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 
 </body>
 </html>

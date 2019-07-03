@@ -1,6 +1,8 @@
 package app.models.User;
 
 
+import org.springframework.context.annotation.Scope;
+
 import javax.persistence.*;
 
 @Entity

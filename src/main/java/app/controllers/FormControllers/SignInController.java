@@ -1,16 +1,14 @@
 package app.controllers.FormControllers;
 
 
-import app.Service.UserService;
+import app.Service.FlowerService.FlowerService;
+import app.Service.UserService.UserService;
 import app.models.User.Roles;
 import app.models.User.User;
 import app.vallidation.UserValidator;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +17,8 @@ public class SignInController {
 
     private UserService service;
     private UserValidator validator = new UserValidator();
+
+
 
     public SignInController(UserService service) {
         this.service = service;
@@ -57,10 +57,12 @@ public class SignInController {
 
         session.setAttribute("currentUser",currentUser );
 
+
         if(currentUser.getRole().equals(Roles.ADMIN))
                        return "redirect:/web/admin";
 
-        redirectAttributes.addFlashAttribute("user", new User(username,null, Roles.USER));
+      //  redirectAttributes.addFlashAttribute("user", new User(username,null, Roles.USER));
+      //  redirectAttributes.addFlashAttribute("flowerList", flowerService.getAllFlowers());
         return "redirect:/web/userPage";
     }
 

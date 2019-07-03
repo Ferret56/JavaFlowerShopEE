@@ -1,4 +1,4 @@
-package app.DAO;
+package app.DAO.UserDao;
 
 import app.models.User.User;
 
