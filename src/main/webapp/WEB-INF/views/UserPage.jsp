@@ -31,6 +31,7 @@
         <td>ID</td>
         <td>NAME</td>
         <td>PRICE</td>
+        <td>AMOUNT</td>
         <td>ACTION</td>
     </tr>
     <c:forEach var="flower" items="${flowerList}">
@@ -38,6 +39,7 @@
             <td><c:out value="${flower.id}"/></td>
             <td><c:out value="${flower.name}"/></td>
             <td><c:out value="${flower.price}"/></td>
+            <td><form><input type="number" min="1" max="20" value="1" onkeypress="return false" ></form></td>
             <c:url value="/web/userPage/add/${flower.id}" var="addLink"/>
             <td><a href="${addLink}">Add to cart</a></td>
         </tr>
