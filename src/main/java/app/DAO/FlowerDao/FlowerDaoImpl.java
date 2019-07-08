@@ -32,4 +32,16 @@ public class FlowerDaoImpl implements FlowerDao {
         return query.getResultList();
 
     }
+
+    @Override
+    public Flower getFlower(int id) {
+        EntityManager em = Persistence.createEntityManagerFactory("data")
+                .createEntityManager();
+
+        em.getTransaction().begin();
+        Flower flower = em.find(Flower.class,id);
+        em.getTransaction().commit();
+        em.close();
+        return flower;
+    }
 }

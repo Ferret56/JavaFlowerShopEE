@@ -7,4 +7,5 @@ import java.util.List;
 public interface FlowerDao {
     void addFlower(Flower flower);
     List<Flower> getAllFlowers();
+    Flower getFlower(int id);
 }

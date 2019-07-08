@@ -45,7 +45,8 @@ public class SignInController {
     @RequestMapping(value = "/signIn", method = RequestMethod.POST)
     public String confirmSignIn(@RequestParam("username")String username,
                                 @RequestParam("password")String password,
-                                RedirectAttributes redirectAttributes, HttpSession session){
+                                RedirectAttributes redirectAttributes,
+                                HttpSession session){
 
         User currentUser = validator.findByUsername(username,service.getAll());
 

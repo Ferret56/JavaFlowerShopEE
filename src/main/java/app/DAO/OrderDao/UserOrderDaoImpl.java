@@ -1,41 +1,39 @@
-package app.DAO.UserDao;
+package app.DAO.OrderDao;
 
+import app.models.Order.OrderItem;
+import app.models.Order.UserOrder;
 import app.models.User.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
-
 @Repository
-public class UserDaoImpl implements UserDao {
+public class UserOrderDaoImpl implements UserOrderDao {
 
     @Override
-    public void addUser(User user) {
+    public void createOrder(User user, List<OrderItem> orderItemList) {
+        EntityManager em = Persistence.createEntityManagerFactory("data").createEntityManager();
+        UserOrder userOrder = new UserOrder(user,orderItemList);
+        em.getTransaction().begin();
+        em.persist(userOrder);
+        em.getTransaction().commit();
+        em.close();
+
+    }
+
+    @Override
+    public void removeOrder(int id) {
         EntityManager em = Persistence.createEntityManagerFactory("data").createEntityManager();
         em.getTransaction().begin();
-        em.persist(user);
+        em.remove(em.find(UserOrder.class, id));
         em.getTransaction().commit();
         em.close();
     }
 
-    @Override
-    public List<User> getAllUsers() {
-        EntityManager em = Persistence.createEntityManagerFactory("data").createEntityManager();
-        em.getTransaction().begin();
-        TypedQuery<User> query = em.createQuery("from User", User.class);
-        return query.getResultList();
-    }
 
-    @Override
-    public User getUser(int id) {
-        EntityManager em = Persistence.createEntityManagerFactory("data").createEntityManager();
-        em.getTransaction().begin();
-        User user = em.find(User.class, id);
-        em.getTransaction().commit();
-        em.close();
-        return user;
-    }
+
 }

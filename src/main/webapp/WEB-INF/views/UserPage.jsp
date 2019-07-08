@@ -12,6 +12,9 @@
 
 <html>
 <head>
+    <style>
+        <%@include file="styles/UserPageStyle.css"%>
+    </style>
 
     <title>${sessionScope.currentUser.username}</title>
 
@@ -28,16 +31,23 @@
         <td>ID</td>
         <td>NAME</td>
         <td>PRICE</td>
+        <td>ACTION</td>
     </tr>
     <c:forEach var="flower" items="${flowerList}">
         <tr>
             <td><c:out value="${flower.id}"/></td>
             <td><c:out value="${flower.name}"/></td>
             <td><c:out value="${flower.price}"/></td>
+            <c:url value="/web/userPage/add/${flower.id}" var="addLink"/>
+            <td><a href="${addLink}">Add to cart</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+
+<div class="basket">
+    <h1>Your basket:</h1>
+</div>
 
 </body>
 </html>
