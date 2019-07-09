@@ -2,6 +2,7 @@ package app.Service.OrderService;
 
 import app.DAO.OrderDao.UserOrderDao;
 import app.models.Order.OrderItem;
+import app.models.Order.UserOrder;
 import app.models.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,10 @@ public class UserOrderServiceImpl implements UserOrderService {
     @Override
     public void removeOrder(int id) {
         dao.removeOrder(id);
+    }
+
+    @Override
+    public List<UserOrder> getAllOrders(int PersonId) {
+        return dao.getAllOrders(PersonId);
     }
 }

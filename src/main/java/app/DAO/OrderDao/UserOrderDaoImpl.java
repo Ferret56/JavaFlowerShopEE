@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -34,6 +35,14 @@ public class UserOrderDaoImpl implements UserOrderDao {
         em.close();
     }
 
+    @Override
+    public List<UserOrder> getAllOrders(int PersonId) {
+        EntityManager em = Persistence.createEntityManagerFactory("data").createEntityManager();
+        em.getTransaction().begin();
+        TypedQuery<UserOrder> query = em.createQuery("FROM UserOrder where  user.id =:personId", UserOrder.class);
+        query.setParameter("personId",PersonId);
+        return query.getResultList();
+    }
 
 
 }

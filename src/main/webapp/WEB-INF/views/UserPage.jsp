@@ -23,16 +23,16 @@
 
 <h1>You are logged as ${sessionScope.currentUser.username}</h1>
 <a href="logout" >LogOut</a>
+<a href="viewOrders">Orders</a>
+
 <h3>Product table:</h3>
 
-<table>
+<table border="1">
     <tbody>
     <tr>
         <td>ID</td>
         <td>NAME</td>
         <td>PRICE</td>
-        <td>AMOUNT</td>
-        <td>ACTION</td>
     </tr>
 
     <c:forEach var="flower" items="${flowerList}">
@@ -40,9 +40,6 @@
             <td><c:out value="${flower.id}"/></td>
             <td><c:out value="${flower.name}"/></td>
             <td><c:out value="${flower.price}"/></td>
-            <td><input type="text" name="count" placeholder="count"/></td>
-            <c:url value="/web/userPage/add/${flower.id}" var="addLink"/>
-            <td><a href="${addLink}">Add to cart</a></td>
 
         </tr>
     </c:forEach>
