@@ -17,14 +17,15 @@
 </head>
 <body>
 
-<h1>You are admin!</h1>
+<h1>You are an admin!</h1>
 <form method = "post">
 <input type="submit" value="See All"/>
     <table>
    <c:forEach var = "user" items="${usersList}">
        <tr>
            <td align="left"><c:out value="${user.id}"/></td>
-           <td align="center"><c:out value="${user.username}"/></td>
+           <c:url value="/web/admin/user/${user.id}" var="userOrderLink"/>
+           <td align="center"> <a href="${userOrderLink}"> <c:out value="${user.username}"/> </a></td>
        </tr>
    </c:forEach>
         <a href="logout">LogOut</a>

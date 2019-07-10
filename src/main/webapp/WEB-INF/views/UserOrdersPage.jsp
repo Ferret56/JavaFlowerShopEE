@@ -7,7 +7,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="app.models.User.Roles" %>
 <%@ page isELIgnored="false" %>
+
 <html>
 <head>
     <title>Orders</title>
@@ -29,7 +31,10 @@
             </tr>
         </c:forEach>
     </table>
-
+    <c:if test="${sessionScope.currentUser.role eq Roles.ADMIN}">
+        <c:url value="/web/admin/remove/order/${order.id}" var="deleteOrderLink"/>
+        <a href="${deleteOrderLink}">Delete order</a>
+    </c:if>
 
 </c:forEach>
 

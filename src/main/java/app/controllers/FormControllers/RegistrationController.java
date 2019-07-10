@@ -29,17 +29,20 @@ public class RegistrationController {
                                             @RequestParam("confirm_password")String confirmPassword){
 
        if(validator.isNull(username) || validator.isNull(password))
-            return new ModelAndView("RegisterPage", "informationMessage",
-                                    "Username and password can not be empty!");
+            return new ModelAndView("RegisterPage",
+                            "informationMessage",
+              "Username and password can not be empty!");
 
 
         if(validator.isUsernameAlreadyExist(username, service.getAll()))
-            return new ModelAndView("RegisterPage", "informationMessage",
-                    "This username is already exists");
+            return new ModelAndView("RegisterPage",
+                             "informationMessage",
+               "This username is already exists");
 
         if(!validator.isPasswordsTheSame(password,confirmPassword))
-            return new ModelAndView("RegisterPage", "informationMessage",
-                    "Password and ConfirmPassword do not match!");
+            return new ModelAndView("RegisterPage",
+                    "informationMessage",
+              "Password and ConfirmPassword do not match!");
 
 
         service.save(new User(username,password, Roles.USER));

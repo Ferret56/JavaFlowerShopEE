@@ -18,7 +18,6 @@ public class OrderItem {
     private UserOrder userOrder;
 
     @OneToOne
-    @JoinColumn(name = "flower_id")
     private Flower flower;
 
     @Column(name = "count")

@@ -46,7 +46,6 @@
     </tbody>
 </table>
 
-
 <br>
 <form method="post">
     <select name="FlowerId">
@@ -68,7 +67,7 @@
 <div class="basket" >
     <h1>Your basket:</h1>
     <c:if test="${ not empty sessionScope.orderItemsList}">
-    <table>
+    <table border="1">
         <tbody>
         <tr>
             <td>Name</td>
@@ -84,6 +83,8 @@
     </table>
         <c:url value="/web/userPage/createOrder" var="createOrderLink"/>
        <a href="${createOrderLink}">Create order</a>
+        <c:url value="/web/userPage/clearOrder" var="clearOrderLink"/>
+        <a href="${clearOrderLink}">Clear all</a>
     </c:if>
 
 

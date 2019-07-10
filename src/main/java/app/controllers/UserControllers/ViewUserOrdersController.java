@@ -28,7 +28,7 @@ public class ViewUserOrdersController {
     public ModelAndView viewOrdersPage(HttpSession session, RedirectAttributes redirectAttributes){
         User currentUser = (User)session.getAttribute("currentUser");
         List<UserOrder> ordersList = userOrderService.getAllOrders(currentUser.getId());
-        redirectAttributes.addFlashAttribute("ordersList", ordersList);
+       // redirectAttributes.addFlashAttribute("ordersList", ordersList);
         ModelAndView modelAndView = new ModelAndView("UserOrdersPage");
         modelAndView.addObject("ordersList", ordersList);
         return modelAndView;
