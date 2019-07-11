@@ -7,7 +7,7 @@ import app.models.User.User;
 import java.util.List;
 
 public interface UserOrderService {
-    void createOrder(User user, List<OrderItem> orderItemList);
+    void createOrder(User user, List<OrderItem> orderItemList, int orderCost);
     void removeOrder(int id);
     List<UserOrder> getAllOrders(int PersonId);
 

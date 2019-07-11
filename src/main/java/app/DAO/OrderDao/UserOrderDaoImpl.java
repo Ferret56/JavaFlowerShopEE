@@ -16,9 +16,9 @@ import java.util.List;
 public class UserOrderDaoImpl implements UserOrderDao {
 
     @Override
-    public void createOrder(User user, List<OrderItem> orderItemList) {
+    public void createOrder(User user, List<OrderItem> orderItemList, int orderCost) {
         EntityManager em = Persistence.createEntityManagerFactory("data").createEntityManager();
-        UserOrder userOrder = new UserOrder(user,orderItemList);
+        UserOrder userOrder = new UserOrder(user,orderItemList,orderCost);
         em.getTransaction().begin();
         em.persist(userOrder);
         em.getTransaction().commit();

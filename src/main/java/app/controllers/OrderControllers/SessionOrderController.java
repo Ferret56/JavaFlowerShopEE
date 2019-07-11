@@ -2,7 +2,9 @@ package app.controllers.OrderControllers;
 
 import app.Service.FlowerService.FlowerService;
 import app.Service.OrderService.UserOrderService;
+import app.models.Flower.Flower;
 import app.models.Order.OrderItem;
+import org.hibernate.query.criteria.internal.OrderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,11 +33,18 @@ public class SessionOrderController {
     public String saveOrderToSession(@RequestParam("FlowerId") int id,
                                      @RequestParam("Amount") int amount,
                                      RedirectAttributes redirectAttributes,
-                                     HttpSession session) {
+                                     HttpSession session){
+
 
         List<OrderItem> orderItems = (ArrayList<OrderItem>) session.getAttribute("orderItemsList");
-        orderItems.add(new OrderItem(flowerService.getFlower(id), amount));
+        Flower currentFlower = (Flower)flowerService.getFlower(id);
+        orderItems.add(new OrderItem(currentFlower, amount));
+        int currentCost= 0;
+        for(OrderItem orderItem : orderItems){
+            currentCost+= orderItem.getFlower().getPrice() * orderItem.getCount();
+        }
         redirectAttributes.addFlashAttribute("orderItemsList", orderItems);
+        redirectAttributes.addFlashAttribute("currentCost", currentCost);
         return "redirect:/web/userPage";
 
     }

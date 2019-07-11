@@ -13,7 +13,7 @@
 <html>
 <head>
     <style>
-        <%@include file="styles/SignInPageStyle.css"%>
+        <%@include file="../styles/SignInPageStyle.css"%>
     </style>
     <title>Welcome</title>
 </head>

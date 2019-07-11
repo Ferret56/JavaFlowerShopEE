@@ -1,6 +1,7 @@
 package app.models.User;
 
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.context.annotation.Scope;
 
 import javax.persistence.*;
@@ -23,14 +24,27 @@ public class User {
     @Column(name = "role")
     private Roles role;
 
+    @Column(name = "money")
+    private int money;
 
-    public User() {}
-
-    public User(String username, String password, Roles role) {
+    public User(String username, String password, Roles role, int money) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.money = money;
     }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public User() {}
+
+
 
     public void setId(int id) {
         this.id = id;

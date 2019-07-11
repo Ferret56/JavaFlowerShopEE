@@ -20,8 +20,8 @@ public class UserOrderServiceImpl implements UserOrderService {
     }
 
     @Override
-    public void createOrder(User user, List<OrderItem> orderItemList) {
-            dao.createOrder(user,orderItemList);
+    public void createOrder(User user, List<OrderItem> orderItemList, int orderCost) {
+            dao.createOrder(user,orderItemList, orderCost);
     }
 
     @Override

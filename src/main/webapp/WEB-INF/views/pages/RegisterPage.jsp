@@ -4,7 +4,7 @@
 <html>
 <head>
     <style>
-        <%@include file="styles/RegisterPageStyle.css"%>
+        <%@include file="../styles/RegisterPageStyle.css"%>
     </style>
     <title>Registration</title>
 </head>

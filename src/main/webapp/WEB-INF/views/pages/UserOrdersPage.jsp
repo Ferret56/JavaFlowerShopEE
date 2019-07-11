@@ -15,10 +15,9 @@
     <title>Orders</title>
 </head>
 <body>
-
 <c:forEach var="order" items="${ordersList}">
-
     <h3>Order№: <c:out value="${order.id}"/></h3>
+    <h3>Order cost: <c:out value="${order.orderCost}$"/> </h3>
     <table border="1">
         <tr>
             <td>Flower</td>
@@ -35,8 +34,6 @@
         <c:url value="/web/admin/remove/order/${order.id}" var="deleteOrderLink"/>
         <a href="${deleteOrderLink}">Delete order</a>
     </c:if>
-
 </c:forEach>
-
 </body>
 </html>

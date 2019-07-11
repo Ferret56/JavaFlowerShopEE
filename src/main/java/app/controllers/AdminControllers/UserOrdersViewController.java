@@ -25,7 +25,7 @@ public class UserOrdersViewController {
     @RequestMapping(value = "/admin/user/{id}")
     public ModelAndView viewUserOrdersPage(@PathVariable("id")int userId){
         List<UserOrder> ordersList =  userOrderService.getAllOrders(userId);
-        ModelAndView modelAndView = new ModelAndView("UserOrdersPage");
+        ModelAndView modelAndView = new ModelAndView("pages/UserOrdersPage");
         modelAndView.addObject("ordersList",ordersList);
         modelAndView.addObject("userId",userId);
         return modelAndView;

@@ -18,6 +18,9 @@ public class UserOrder {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(name = "order_cost")
+    private int orderCost;
+
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "order_id")
@@ -26,9 +29,18 @@ public class UserOrder {
     public UserOrder() {
     }
 
-    public UserOrder(User user, List<OrderItem> orderItemList) {
+    public UserOrder(User user, List<OrderItem> orderItemList, int orderCost) {
         this.user = user;
+        this.orderCost = orderCost;
         this.orderItemList = orderItemList;
+    }
+
+    public int getOrderCost() {
+        return orderCost;
+    }
+
+    public void setOrderCost(int orderCost) {
+        this.orderCost = orderCost;
     }
 
     public int getId() {

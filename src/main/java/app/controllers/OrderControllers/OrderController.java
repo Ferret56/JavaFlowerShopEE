@@ -3,6 +3,7 @@ package app.controllers.OrderControllers;
 
 import app.Service.FlowerService.FlowerService;
 import app.Service.OrderService.UserOrderService;
+import app.Service.UserService.UserService;
 import app.models.Order.OrderItem;
 import app.models.Order.UserOrder;
 
@@ -27,21 +28,27 @@ import java.util.List;
 public class OrderController {
 
     private UserOrderService orderService;
-
+    private UserService userService;
 
     @Autowired
-    public OrderController(UserOrderService orderService) {
+    public OrderController(UserOrderService orderService, UserService userService) {
         this.orderService = orderService;
+        this.userService = userService;
     }
 
     @RequestMapping(value = "userPage/createOrder")
     public String createOrder(HttpSession session) {
         User currentUser = (User)session.getAttribute("currentUser");
         List<OrderItem> orderItems = (ArrayList<OrderItem>) session.getAttribute("orderItemsList");
-        orderService.createOrder(currentUser,orderItems);
+        int currentCost = 0;
+        for(OrderItem orderItem : orderItems){
+            currentCost+= orderItem.getFlower().getPrice() * orderItem.getCount();
+        }
+        orderService.createOrder(currentUser,orderItems,currentCost);
         orderItems.clear();
+        currentUser.setMoney(currentUser.getMoney() - currentCost);
+        userService.updateUser(currentUser);
         return "redirect:/web/userPage";
-
     }
 
     @RequestMapping(value = "admin/remove/order/{id}")

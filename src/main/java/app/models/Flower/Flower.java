@@ -18,6 +18,23 @@ public class Flower {
     @Column(name = "price")
     private int price;
 
+    @Column(name = "amount")
+    private int amount;
+
+    public Flower(String name, int price, int amount) {
+        this.name = name;
+        this.price = price;
+        this.amount = amount;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     public Flower() {}
 
     public Flower(String name, int price) {

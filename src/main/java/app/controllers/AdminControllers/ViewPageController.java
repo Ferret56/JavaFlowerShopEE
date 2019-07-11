@@ -15,7 +15,7 @@ public class ViewPageController {
     public String sendAdminPage(HttpSession session){
         User currentUser = (User)session.getAttribute("currentUser");
         if( currentUser!=null && currentUser.getRole().equals(Roles.ADMIN))
-                   return "AdminPage";
+                   return "pages/AdminPage";
 
         return "redirect:/web/signIn";
     }

@@ -21,6 +21,6 @@ public class ActionAdminController {
     @RequestMapping(value = "/admin", method = RequestMethod.POST)
     public String seeALl(Model model){
        model.addAttribute("usersList", service.getAll());
-       return "AdminPage";
+       return "pages/AdminPage";
     }
 }
