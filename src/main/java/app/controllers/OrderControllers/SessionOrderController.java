@@ -1,5 +1,6 @@
 package app.controllers.OrderControllers;
 import app.Service.FlowerService.FlowerService;
+import app.models.Basket.Basket;
 import app.models.Flower.Flower;
 import app.models.Order.OrderItem;
 
@@ -8,11 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Controller
 public class SessionOrderController {
@@ -27,26 +25,17 @@ public class SessionOrderController {
     @RequestMapping(value = "/userPage", method = RequestMethod.POST)
     public String saveOrderToSession(@RequestParam("FlowerId") int id,
                                      @RequestParam("Amount") int amount,
-                                     RedirectAttributes redirectAttributes,
                                      HttpSession session){
 
-        List<OrderItem> orderItems = (ArrayList<OrderItem>) session.getAttribute("orderItemsList");
+        Basket currentBasket = (Basket)session.getAttribute("currentBasket");
         Flower currentFlower = flowerService.getFlower(id);
-        orderItems.add(new OrderItem(currentFlower, amount));
-        int currentCost = 0;
-        for(OrderItem orderItem : orderItems){
-            currentCost+= orderItem.getFlower().getPrice() * orderItem.getCount();
-
-        }
-        redirectAttributes.addFlashAttribute("orderItemsList", orderItems);
-        redirectAttributes.addFlashAttribute("currentCost", currentCost);
+        currentBasket.addOrderItem(new OrderItem(currentFlower,amount));
         return "redirect:/web/userPage";
     }
 
     @RequestMapping(value = "userPage/clearOrder")
     public String clearOrderFromSession(HttpSession session){
-        List<OrderItem> orderItems = (ArrayList<OrderItem>) session.getAttribute("orderItemsList");
-        orderItems.clear();
+        ((Basket)session.getAttribute("currentBasket")).clear();
         return "redirect:/web/userPage";
     }
 }

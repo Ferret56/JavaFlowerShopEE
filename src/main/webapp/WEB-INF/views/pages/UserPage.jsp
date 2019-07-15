@@ -63,14 +63,14 @@
 <br>
 <div class="basket" >
     <h1>Your basket:</h1>
-    <c:if test="${ not empty sessionScope.orderItemsList}">
+    <c:if test="${ not empty sessionScope.currentBasket.orderItemList}">
     <table border="1">
         <tbody>
         <tr>
             <td>Name</td>
             <td>Count</td>
         </tr>
-    <c:forEach var="orderItem" items="${sessionScope.orderItemsList}">
+    <c:forEach var="orderItem" items="${sessionScope.currentBasket.orderItemList}">
         <tr>
        <td> <c:out value="${orderItem.flower.name}"/></td>
        <td> <c:out value="${orderItem.count}"/></td>
@@ -79,8 +79,7 @@
         </tbody>
         <h3><c:out value="${informationMessage}"/></h3>
     </table>
-        <c:set var="currentCost" value="${currentCost}"/>
-        <h4><c:out value="Cost : ${currentCost}$"/></h4>
+        <h4><c:out value="Cost : ${sessionScope.currentBasket.price}$"/></h4>
         <c:url value="/web/userPage/createOrder" var="createOrderLink"/>
        <a href="${createOrderLink}">Create order</a>
         <c:url value="/web/userPage/clearOrder" var="clearOrderLink"/>
