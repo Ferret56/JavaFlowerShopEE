@@ -1,10 +1,8 @@
 package app.controllers.OrderControllers;
-
 import app.Service.FlowerService.FlowerService;
-import app.Service.OrderService.UserOrderService;
 import app.models.Flower.Flower;
 import app.models.Order.OrderItem;
-import org.hibernate.query.criteria.internal.OrderImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,13 +18,10 @@ import java.util.List;
 public class SessionOrderController {
 
     private FlowerService flowerService;
-    private UserOrderService orderService;
-
 
     @Autowired
-    public SessionOrderController(FlowerService flowerService, UserOrderService orderService) {
+    public SessionOrderController(FlowerService flowerService) {
         this.flowerService = flowerService;
-        this.orderService = orderService;
     }
 
     @RequestMapping(value = "/userPage", method = RequestMethod.POST)
@@ -35,18 +30,17 @@ public class SessionOrderController {
                                      RedirectAttributes redirectAttributes,
                                      HttpSession session){
 
-
         List<OrderItem> orderItems = (ArrayList<OrderItem>) session.getAttribute("orderItemsList");
-        Flower currentFlower = (Flower)flowerService.getFlower(id);
+        Flower currentFlower = flowerService.getFlower(id);
         orderItems.add(new OrderItem(currentFlower, amount));
-        int currentCost= 0;
+        int currentCost = 0;
         for(OrderItem orderItem : orderItems){
             currentCost+= orderItem.getFlower().getPrice() * orderItem.getCount();
+
         }
         redirectAttributes.addFlashAttribute("orderItemsList", orderItems);
         redirectAttributes.addFlashAttribute("currentCost", currentCost);
         return "redirect:/web/userPage";
-
     }
 
     @RequestMapping(value = "userPage/clearOrder")

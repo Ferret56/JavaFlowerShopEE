@@ -4,6 +4,7 @@ package app.controllers.UserControllers;
 import app.Service.FlowerService.FlowerService;
 import app.models.User.Roles;
 import app.models.User.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,7 @@ public class ViewUserPageController {
 
    private FlowerService flowerService;
 
+    @Autowired
     public ViewUserPageController(FlowerService flowerService){
         this.flowerService = flowerService;
     }
@@ -28,8 +30,6 @@ public class ViewUserPageController {
             modelAndView.addObject("flowerList",flowerService.getAllFlowers());
             return modelAndView;
         }
-            // return "UserPage";
-
         return new ModelAndView("redirect:/web/signIn");
     }
 }

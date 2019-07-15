@@ -1,8 +1,7 @@
 package app.models.User;
 
 
-import org.hibernate.annotations.DynamicUpdate;
-import org.springframework.context.annotation.Scope;
+
 
 import javax.persistence.*;
 

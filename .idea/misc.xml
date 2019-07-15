@@ -11,6 +11,9 @@
       </list>
     </option>
   </component>
+  <component name="ProjectResources">
+    <resource url="'https://fonts.googleapis.com/css?family=Roboto&amp;display=swap'" location="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_12" project-jdk-name="12" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-
     private UserDao dao;
 
     @Autowired
@@ -21,7 +20,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
-    // dao = new UserDaoImpl();
      dao.addUser(user);
     }
 
@@ -33,6 +31,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(int id) {
         return dao.getUser(id);
+    }
+
+    @Override
+    public User getUserByName(String username) {
+        return dao.getUserByName(username);
     }
 
     @Override

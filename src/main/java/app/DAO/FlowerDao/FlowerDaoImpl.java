@@ -44,4 +44,14 @@ public class FlowerDaoImpl implements FlowerDao {
         em.close();
         return flower;
     }
+
+    @Override
+    public void updateFlower(Flower flower) {
+        EntityManager em = Persistence.createEntityManagerFactory("data")
+                .createEntityManager();
+        em.getTransaction().begin();
+        em.merge(flower);
+        em.getTransaction().commit();
+        em.close();
+    }
 }

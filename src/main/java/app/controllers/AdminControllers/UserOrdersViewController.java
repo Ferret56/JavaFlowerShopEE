@@ -16,7 +16,6 @@ public class UserOrdersViewController {
 
     private UserOrderService userOrderService;
 
-
     @Autowired
     public UserOrdersViewController(UserOrderService userOrderService) {
         this.userOrderService = userOrderService;

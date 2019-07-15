@@ -8,5 +8,6 @@ public interface UserService {
     void save(User user);
     List<User> getAll();
     User getUser(int id);
+    User getUserByName(String username);
     void updateUser(User user);
 }

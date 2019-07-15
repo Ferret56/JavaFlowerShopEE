@@ -3,12 +3,11 @@ package app.DAO.OrderDao;
 import app.models.Order.OrderItem;
 import app.models.Order.UserOrder;
 import app.models.User.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
+
 import javax.persistence.TypedQuery;
 import java.util.List;
 

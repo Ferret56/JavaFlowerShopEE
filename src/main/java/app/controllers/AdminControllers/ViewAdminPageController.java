@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class ViewPageController {
+public class ViewAdminPageController {
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String sendAdminPage(HttpSession session){

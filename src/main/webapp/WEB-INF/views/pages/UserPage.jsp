@@ -77,6 +77,7 @@
         </tr>
     </c:forEach>
         </tbody>
+        <h3><c:out value="${informationMessage}"/></h3>
     </table>
         <c:set var="currentCost" value="${currentCost}"/>
         <h4><c:out value="Cost : ${currentCost}$"/></h4>
