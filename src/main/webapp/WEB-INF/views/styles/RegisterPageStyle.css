@@ -1,47 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+
 body{
-    background-color:#47DCA0;
+    font-family: 'Roboto';
+    background-image: url(../resources/img/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
-.container{
-    width: 350px;
-    height: 400px;
-    background-color: #25316A;
-    margin:100px auto 1px auto;
+a{
+    color: #fff;
+}
+a:hover{
+    text-decoration:none;
+}
+.registrationForm{
+    width: 450px;
+    height: 600px;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(118,133,154,0.7);
     text-align: center;
-    padding-top: 50px;
-    padding-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px
 }
-
-input[type = "text"], input[type = "password"]{
+input[type="text"], input[type="password"]{
     width: 300px;
     height: 50px;
     font-size: 18px;
+    font-family: 'Roboto';
     margin-bottom: 25px;
-    border-radius: 4px;
-    padding-left: 10px;
+    border-radius: 8px;
+    padding-left: 10px
 }
-
-.Submit{
+input[type="submit"]{
     padding: 13px 30px;
-    margin:5px 0 0 0;
+    margin: 5px 0 20px 0;
+    color: #fff;
+    background-color: #493ADF;
+    border: none;
+    border-bottom: 4px solid #242263 ;
+    border-radius: 10px;
+    cursor:pointer;
     font-size: 15px;
-    color:#fff;
-    background-color: #2ca8c6;
-    border:none;
-    border-bottom: 4px solid #6ee9fd;
-    cursor: pointer;
+
 }
 
-.Submit:hover{
-    transition: all 0.05s;
-    background: #fff;
-    color:#2c536c;
+.submit:hover{
+    transition: all 0.3s;
+    background-color:#6862EA;
 }
 
-.welcomeText{
-    color: #C38FFF ;
+.inputs{
+    width: 450px;
+    height: 350px;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
 }
-.infMessage{
-    font-family: Georgia, serif;
-    color: #C81E71;
+.Account{
+    color:aliceblue;
+    text-shadow: 1px 2px 1px black;
+}
+
+.informationMessage{
+    color: #DB4848;
+    text-shadow: 2px 4px 4px black;
 }
