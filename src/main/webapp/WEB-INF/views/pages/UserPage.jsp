@@ -15,19 +15,14 @@
     <style>
         <%@include file="../styles/UserPageStyle.css"%>
     </style>
-
     <title>${sessionScope.currentUser.username}</title>
-
 </head>
 <body>
-
 <h1>You are logged as ${sessionScope.currentUser.username}</h1>
 <h2>You have ${sessionScope.currentUser.money}$</h2>
 <a href="logout" >LogOut</a>
 <a href="viewOrders">Orders</a>
-
 <h3>Product table:</h3>
-
 <table border="1">
     <tbody>
     <tr>
@@ -36,19 +31,16 @@
         <td>PRICE</td>
         <td>AMOUNT</td>
     </tr>
-
     <c:forEach var="flower" items="${flowerList}">
         <tr>
             <td><c:out value="${flower.id}"/></td>
             <td><c:out value="${flower.name}"/></td>
             <td><c:out value="${flower.price}$"/></td>
             <td><c:out value="${flower.amount}"/></td>
-
         </tr>
     </c:forEach>
     </tbody>
 </table>
-
 <br>
 <form method="post">
     <select name="FlowerId">
@@ -59,7 +51,6 @@
     <input type="number" id="amountFld" name="Amount" placeholder="Amount"  min="1"/>
     <input type="submit" value="Add to the basket"/>
 </form>
-
 <br>
 <div class="basket" >
     <h1>Your basket:</h1>
@@ -85,13 +76,6 @@
         <c:url value="/web/userPage/clearOrder" var="clearOrderLink"/>
         <a href="${clearOrderLink}">Clear all</a>
     </c:if>
-
-
-
 </div>
-
-
-
-
 </body>
 </html>

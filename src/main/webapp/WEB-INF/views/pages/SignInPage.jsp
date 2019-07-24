@@ -1,37 +1,37 @@
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page isELIgnored="false" %>
-
 <%--
   Created by IntelliJ IDEA.
   User: alexsey.sultanaev
-  Date: 25.06.2019
-  Time: 23:30
+  Date: 24.07.2019
+  Time: 12:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isELIgnored="false" %>
+
 <html>
 <head>
+    <meta charset="utf-8">
     <style>
         <%@include file="../styles/SignInPageStyle.css"%>
     </style>
-    <title>Welcome</title>
+    <title>Login</title>
 </head>
 <body>
-<div class = "container">
-    <h2 class="welcomeText">Account</h2>
+<div class="signInForm">
     <form method="post">
-        <div class = "mainInput">
-            <input type="text" name="username" placeholder="username"/>
+        <div class="inputs">
+            <h3 class="Account">Account</h3>
+            <input type="text" name="username" placeholder="username">
+            <input type="password" name="password" placeholder="password">
+            <br/>
+            <input class="submit" type="submit" value="Sign In">
+            <br/>
+            <c:url value="/web/register" var="registerLink"/>
+            <a href="${registerLink}">Registration</a>
+            <p class="informationMessage">${informationMessage}</p>
         </div>
-        <div class = "mainInput">
-            <input type = "password" name="password" placeholder="password"/>
-        </div>
-        <input class ="Submit" type="submit" name="submit" value="Sign in"/>
-        <br/>
-       <c:url value="/web/register" var="registerLink"/>
-        <a href="${registerLink}">Register</a>
-        <h5 class="infMessage">${informationMessage}</h5>
     </form>
 </div>
 </body>
