@@ -16,7 +16,8 @@ public class ViewStartFormController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
-    public String register(){
+    public String register(Model model){
+        model.addAttribute("user", new User());
         return "pages/RegisterPage";
     }
 }

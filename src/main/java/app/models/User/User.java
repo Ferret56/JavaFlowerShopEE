@@ -19,6 +19,8 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Transient
+    private String confirm_password;
 
     @Column(name = "role")
     private Roles role;
@@ -26,9 +28,10 @@ public class User {
     @Column(name = "money")
     private int money;
 
-    public User(String username, String password, Roles role, int money) {
+    public User(String username, String password, String confirm_password, Roles role, int money) {
         this.username = username;
         this.password = password;
+        this.confirm_password = confirm_password;
         this.role = role;
         this.money = money;
     }
@@ -43,7 +46,13 @@ public class User {
 
     public User() {}
 
+    public String getConfirm_password() {
+        return confirm_password;
+    }
 
+    public void setConfirm_password(String confirm_password) {
+        this.confirm_password = confirm_password;
+    }
 
     public void setId(int id) {
         this.id = id;

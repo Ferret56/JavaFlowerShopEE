@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
@@ -18,7 +19,7 @@
 </head>
 <body>
 <div class="registrationForm">
-    <form method="post">
+    <form:form method="post" modelAttribute="user">
         <div class="inputs">
             <h3 class="Account">Create new account</h3>
             <input type="text" name="username" placeholder="username">
@@ -29,9 +30,10 @@
             <br/>
             <c:url value="/web/signIn" var="signInLink"/>
             <a href="${signInLink}">Sign in</a>
-            <p class="informationMessage">${informationMessage}</p>
+            <p class="errorMessage"><form:errors path="*"/> </p>
+            <p class="successMessage">${successMessage}</p>
         </div>
-    </form>
+    </form:form>
 </div>
 </body>
 </html>

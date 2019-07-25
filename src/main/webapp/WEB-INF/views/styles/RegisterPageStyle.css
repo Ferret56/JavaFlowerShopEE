@@ -70,7 +70,13 @@ input[type="submit"]{
     text-shadow: 1px 2px 1px black;
 }
 
-.informationMessage{
+.errorMessage{
     color: #DB4848;
+    text-shadow: 2px 4px 4px black;
+}
+
+
+.successMessage{
+    color: #54db4a;
     text-shadow: 2px 4px 4px black;
 }

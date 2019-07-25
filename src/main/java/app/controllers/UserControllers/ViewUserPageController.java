@@ -26,7 +26,7 @@ public class ViewUserPageController {
     public ModelAndView sendUserPage(HttpSession session){
         User currentUser = (User)session.getAttribute("currentUser");
         if(currentUser!=null && currentUser.getRole().equals(Roles.USER)){
-            ModelAndView modelAndView = new ModelAndView("pages/UserPageNew");
+            ModelAndView modelAndView = new ModelAndView("pages/UserPage");
             modelAndView.addObject("flowerList",flowerService.getAllFlowers());
             return modelAndView;
         }
