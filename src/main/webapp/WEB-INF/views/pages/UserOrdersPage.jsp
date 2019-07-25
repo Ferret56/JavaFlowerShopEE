@@ -21,8 +21,8 @@
 <div class="orderBox">
     <c:forEach var="order" items="${ordersList}">
     <div class="order">
-        <h4>Order № 100</h4>
-        <h4>Price: 500$</h4>
+        <h4>Order № ${order.id}</h4>
+        <h4>Price: ${order.orderCost}$</h4>
         <table border="1">
             <tr>
                 <th>Flower</th>
