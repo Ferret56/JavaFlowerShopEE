@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="signInForm">
-    <form method="post">
+    <form:form method="post" modelAttribute="user">
         <div class="inputs">
             <h3 class="Account">Account</h3>
             <input type="text" name="username" placeholder="username">
@@ -30,9 +30,10 @@
             <br/>
             <c:url value="/web/register" var="registerLink"/>
             <a href="${registerLink}">Registration</a>
-            <p class="informationMessage">${informationMessage}</p>
+           <!-- <p class="informationMessage">${informationMessage}</p> -->
+            <p class="informationMessage"><form:errors path="*"/></p>
         </div>
-    </form>
+    </form:form>
 </div>
 </body>
 </html>
